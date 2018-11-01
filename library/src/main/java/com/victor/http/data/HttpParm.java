@@ -14,4 +14,5 @@ public class HttpParm <T> {
     public HashMap<String,String> headers;
     public String jsonParm;
     public List<String> fileNames;
+    public int msg;//jsoup 使用
 }

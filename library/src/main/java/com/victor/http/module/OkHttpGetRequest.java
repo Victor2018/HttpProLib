@@ -1,6 +1,6 @@
 package com.victor.http.module;
 
-import com.victor.http.interfaces.OkHttpListener;
+import com.victor.http.presenter.OnHttpListener;
 
 import java.util.HashMap;
 import java.util.Iterator;
@@ -16,7 +16,7 @@ public class OkHttpGetRequest<T> extends OkHttpMethod<T> {
         super(url, okHttpClient,headers);
     }
 
-    public OkHttpGetRequest(String url,HashMap<String,String> headers, String parm, Class<T> clazz, OkHttpClient okHttpClient, OkHttpListener<T> listener) {
+    public OkHttpGetRequest(String url,HashMap<String,String> headers, String parm, Class<T> clazz, OkHttpClient okHttpClient, OnHttpListener<T> listener) {
         this(url + parm,okHttpClient,headers);
         mParm = parm;
         mClass = clazz;

@@ -1,6 +1,6 @@
 package com.victor.http.module;
 
-import com.victor.http.interfaces.OkHttpListener;
+import com.victor.http.presenter.OnHttpListener;
 
 import java.util.HashMap;
 
@@ -30,7 +30,7 @@ public class OkHttpPostRequest<T> extends OkHttpMethod<T> {
         super(url,okHttpClient,headers);
     }
 
-    public OkHttpPostRequest(String url, HashMap<String,String> headers, String parm, String bodyContentType, Class<T> clazz, OkHttpClient okHttpClient, OkHttpListener<T> listener) {
+    public OkHttpPostRequest(String url, HashMap<String,String> headers, String parm, String bodyContentType, Class<T> clazz, OkHttpClient okHttpClient, OnHttpListener<T> listener) {
         this(url,okHttpClient,headers);
         mParm = parm;
         mMediaType = MediaType.parse(bodyContentType + HttpRequest.character);

@@ -4,8 +4,8 @@ import android.util.Log;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONException;
+import com.victor.http.presenter.OnHttpListener;
 import com.victor.http.util.MainHandler;
-import com.victor.http.interfaces.OkHttpListener;
 
 import java.io.IOException;
 import java.nio.charset.UnsupportedCharsetException;
@@ -26,7 +26,7 @@ public abstract class OkHttpMethod<T> implements Callback{
 
     protected Class<T> mClass;
     protected String requestUrl;
-    protected OkHttpListener<T> mListener;
+    protected OnHttpListener<T> mListener;
     protected String mParm;
 
     /**
@@ -160,11 +160,16 @@ public abstract class OkHttpMethod<T> implements Callback{
             public void run() {
                 if (mListener != null) {
                     T result = parseObject(responseData,mClass);
-                    if (mClass.toString().contains("String")) {
-                        mListener.onResponse((T) responseData,msg);
+                    if (result != null) {
+                        if (mClass.toString().contains("String")) {
+                            mListener.onSuccess((T) responseData);
+                        } else {
+                            mListener.onSuccess(result);
+                        }
                     } else {
-                        mListener.onResponse(result, msg);
+                        mListener.onError(msg);
                     }
+
                 }
             }
         });

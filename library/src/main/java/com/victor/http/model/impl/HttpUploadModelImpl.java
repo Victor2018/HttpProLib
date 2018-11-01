@@ -7,7 +7,6 @@ import com.android.volley.VolleyError;
 import com.victor.http.data.UpLoadParm;
 import com.victor.http.model.HttpModel;
 import com.victor.http.module.HttpRequest;
-import com.victor.http.interfaces.OkHttpListener;
 import com.victor.http.presenter.OnHttpListener;
 
 /**
@@ -19,16 +18,7 @@ public class HttpUploadModelImpl<H,T> implements HttpModel<H,T> {
 
     @Override
     public void sendReuqest(String url, H header,T parm, final OnHttpListener<T> listener) {
-        HttpRequest.getInstance().sendMultipartUploadRequest(url, (UpLoadParm) (parm), new OkHttpListener<T>() {
-            @Override
-            public void onResponse(T response, String msg) {
-                if (response != null) {
-                    listener.onSuccess(response);
-                } else {
-                    listener.onError("no data response!");
-                }
-            }
-        }, new Response.Listener<T>() {
+        HttpRequest.getInstance().sendMultipartUploadRequest(url, (UpLoadParm) (parm), listener, new Response.Listener<T>() {
             @Override
             public void onResponse(T response) {
                 if (response != null) {

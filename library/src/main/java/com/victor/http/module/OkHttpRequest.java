@@ -3,10 +3,10 @@ package com.victor.http.module;
 import android.util.Log;
 
 import com.alibaba.fastjson.JSON;
-import com.android.volley.Request;
 import com.victor.http.data.HttpParm;
+import com.victor.http.data.Request;
 import com.victor.http.data.UpLoadParm;
-import com.victor.http.interfaces.OkHttpListener;
+import com.victor.http.presenter.OnHttpListener;
 
 import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
@@ -31,7 +31,7 @@ public class OkHttpRequest {
     private static final long WRITE_TIMEOUT_MILLIS = 10;
 
     private static OkHttpRequest mOkHttpRequest;
-    private int requestMethod = HttpRequest.GET;//请求方式 默认get
+    private int requestMethod = Request.GET;//请求方式 默认get
     private String mBodyContentType = HttpRequest.mDefaultBodyContentType;
     /**
      * 网络请求客户端
@@ -90,33 +90,33 @@ public class OkHttpRequest {
         mBodyContentType = bodyContentType;
     }
 
-    public <T> OkHttpMethod<T> sendGetRequest (String url, HashMap<String,String> headers,String parm, Class<T> clazz, OkHttpListener<T> listener) {
+    public <T> OkHttpMethod<T> sendGetRequest (String url, HashMap<String,String> headers,String parm, Class<T> clazz, OnHttpListener<T> listener) {
         OkHttpGetRequest<T> request = new OkHttpGetRequest<T>(url,headers,parm,clazz,getOkHttpClient(),listener);
         return request;
     }
     public <T> OkHttpMethod<T> sendPostRequest (String url, HashMap<String,String> headers, String parm, String bodyContentType,
-                                                Class<T> clazz, OkHttpListener<T> listener) {
+                                                Class<T> clazz, OnHttpListener<T> listener) {
 
         OkHttpPostRequest<T> request = new OkHttpPostRequest<T>(url,headers,parm,bodyContentType,clazz,getOkHttpClient(),listener);
         return request;
     }
 
-    public <T> OkHttpMethod<T> sendRequest(HttpParm httpParm, OkHttpListener<T> listener) {
+    public <T> OkHttpMethod<T> sendRequest(HttpParm httpParm, OnHttpListener<T> listener) {
         Log.e(TAG,"request url = " + httpParm.url);
         Log.e(TAG,"request parm = " + JSON.toJSONString(httpParm));
         Log.e(TAG,"request requestMethod = " + (httpParm.requestMethod == 0 ? "GET" : "POST"));
         OkHttpMethod<T> request = null;
-        if (httpParm.requestMethod == Request.Method.POST) {
+        if (httpParm.requestMethod == Request.POST) {
             request = sendPostRequest(httpParm.url,httpParm.headers,httpParm.jsonParm,
                     httpParm.bodyContentType,httpParm.responseCls,listener);
-        } else if (requestMethod == Request.Method.GET) {
+        } else if (requestMethod == Request.GET) {
             request = sendGetRequest(httpParm.url,httpParm.headers,httpParm.jsonParm,httpParm.responseCls,listener);
         }
         request.sendRequest();
         return request;
     }
 
-    public <T> OkHttpMethod<T> sendMultipartUploadRequest (String url, UpLoadParm upLoadParm, OkHttpListener<T> listener) {
+    public <T> OkHttpMethod<T> sendMultipartUploadRequest (String url, UpLoadParm upLoadParm, OnHttpListener<T> listener) {
         Log.e(TAG,"request url = " + url);
         Log.e(TAG,"request parm = " + JSON.toJSONString(upLoadParm));
         OkHttpPostImgRequest<T> request = new OkHttpPostImgRequest<T>(url,responseCls,upLoadParm,

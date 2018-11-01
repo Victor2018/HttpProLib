@@ -4,8 +4,9 @@ import android.util.Log;
 
 import com.android.volley.Response;
 import com.victor.http.data.HttpParm;
+import com.victor.http.data.Request;
 import com.victor.http.data.UpLoadParm;
-import com.victor.http.interfaces.OkHttpListener;
+import com.victor.http.presenter.OnHttpListener;
 
 import java.util.HashMap;
 
@@ -13,11 +14,10 @@ public class HttpRequest {
     private String TAG = "HttpRequest";
     public static final int OKHTTP_FRAMEWORK = 0;
     public static final int VOLLEY_FRAMEWORK = 1;
+    public static final int JSOUP_FRAMEWORK = 2;
     private int httpFramework = OKHTTP_FRAMEWORK;
 
-    public static final int GET               = 0;
-    public static final int POST              = 1;
-    private int requestMethod = GET;
+    private int requestMethod = Request.GET;
 
     public final static String mDefaultBodyContentType = "application/x-www-form-urlencoded; charset=";
     public final static String mJsonBodyContentType = "application/json; charset=";
@@ -68,8 +68,8 @@ public class HttpRequest {
     }
 
     public <T> void sendRequest (String url, HashMap<String,String> headers,
-                                 String parm,OkHttpListener<T> okHttpListener, Response.Listener<T> listener,
-                             Response.ErrorListener errorListener) {
+                                 String parm, OnHttpListener<T> httpListener, Response.Listener<T> listener,
+                                 Response.ErrorListener errorListener) {
         Log.e(TAG,"sendRequest()......");
         HttpParm httpParams = new HttpParm();
         httpParams.requestMethod = requestMethod;
@@ -85,12 +85,17 @@ public class HttpRequest {
                 break;
             case OKHTTP_FRAMEWORK:
                 Log.e(TAG,"sendRequest()......OKHTTP_FRAMEWORK");
-                OkHttpRequest.getInstance().sendRequest(httpParams,okHttpListener);
+                OkHttpRequest.getInstance().sendRequest(httpParams,httpListener);
+                break;
+            case JSOUP_FRAMEWORK:
+                Log.e(TAG,"sendRequest()......JSOUP_FRAMEWORK");
+                httpParams.msg = JsoupRequest.JSOUP_REQUEST;
+                JsoupRequest.getInstance().sendRequest(httpParams,httpListener);
                 break;
         }
     }
 
-    public <T> void sendMultipartUploadRequest (String url, UpLoadParm parm,OkHttpListener<T> okHttpListener, Response.Listener<T> listener,
+    public <T> void sendMultipartUploadRequest (String url, UpLoadParm parm,OnHttpListener<T> httpListener, Response.Listener<T> listener,
                                                 Response.ErrorListener errorListener) {
         switch (httpFramework) {
             case VOLLEY_FRAMEWORK:
@@ -99,7 +104,7 @@ public class HttpRequest {
                 break;
             case OKHTTP_FRAMEWORK:
                 Log.e(TAG, "sendMultipartUploadRequest()......OKHTTP_FRAMEWORK");
-                OkHttpRequest.getInstance().sendMultipartUploadRequest(url,parm, okHttpListener);
+                OkHttpRequest.getInstance().sendMultipartUploadRequest(url,parm, httpListener);
                 break;
         }
     }

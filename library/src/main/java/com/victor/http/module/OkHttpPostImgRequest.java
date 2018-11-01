@@ -2,7 +2,7 @@ package com.victor.http.module;
 
 import com.victor.http.data.FormImage;
 import com.victor.http.data.UpLoadParm;
-import com.victor.http.interfaces.OkHttpListener;
+import com.victor.http.presenter.OnHttpListener;
 
 import java.io.File;
 import java.net.FileNameMap;
@@ -34,7 +34,7 @@ public class OkHttpPostImgRequest<T> extends OkHttpMethod<T> {
     }
 
     public OkHttpPostImgRequest(String url, Class<T> clazz,
-                                UpLoadParm upLoadParm, OkHttpClient okHttpClient, OkHttpListener<T> listener) {
+                                UpLoadParm upLoadParm, OkHttpClient okHttpClient, OnHttpListener<T> listener) {
         this(url,upLoadParm,okHttpClient);
         mClass = clazz;
         requestUrl = url;

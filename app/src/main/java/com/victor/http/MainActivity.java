@@ -26,12 +26,14 @@ import com.victor.http.presenter.HttpPresenter;
 import com.victor.data.LoginReq;
 import com.victor.data.Weather;
 import com.victor.data.WeatherInfo;
+import com.victor.presenter.JsoupPresenterImpl;
 import com.victor.presenter.LoginPresenterImpl;
 import com.victor.presenter.HeaderPresenterImpl;
 import com.victor.presenter.PhoneCodePresenterImpl;
 import com.victor.presenter.UploadPresenterImpl;
 import com.victor.presenter.WeatherPresenterImpl;
 import com.victor.presenter.YoutubePresenterImpl;
+import com.victor.view.JsoupView;
 import com.victor.view.LoginView;
 import com.victor.view.HeaderView;
 import com.victor.view.PhoneCodeView;
@@ -49,7 +51,7 @@ import okhttp3.Response;
 
 
 public class MainActivity extends AppCompatActivity implements WeatherView<Weather>,LoginView<LoginReq>,
-        PhoneCodeView<PhoneCodeReq>,UploadView<UploadReq>,HeaderView<LoginReq>,YoutubeView<String> {
+        PhoneCodeView<PhoneCodeReq>,UploadView<UploadReq>,HeaderView<LoginReq>,YoutubeView<String>, JsoupView<String> {
     private String TAG = "MainActivity";
 
     @BindView(R.id.tv_result)
@@ -61,6 +63,7 @@ public class MainActivity extends AppCompatActivity implements WeatherView<Weath
     private HttpPresenter uploadFilePresenter;
     private HttpPresenter headerPresenter;
     private HttpPresenter youtubePresenter;
+    private JsoupPresenterImpl jsoupPresenter;
     private Dialog loadingDialog;
 
     @Override
@@ -82,8 +85,13 @@ public class MainActivity extends AppCompatActivity implements WeatherView<Weath
         uploadFilePresenter = new UploadPresenterImpl(this);
         headerPresenter = new HeaderPresenterImpl(this);
         youtubePresenter = new YoutubePresenterImpl(this);
+        jsoupPresenter = new JsoupPresenterImpl(this);
         loadingDialog = new ProgressDialog(this);
         loadingDialog.setTitle("加载中...");
+    }
+
+    private void sendJsoupRequest () {
+        jsoupPresenter.sendRequest("http://www.tvsou.com/epg/cctv-3?class=yangshi",null,null);
     }
 
     private void sendHeaderRequest() {
@@ -125,6 +133,7 @@ public class MainActivity extends AppCompatActivity implements WeatherView<Weath
         sendPhoneCode();
 //        sendHeaderRequest();
 //        weatherPresenter.sendRequest("http://www.weather.com.cn/data/sk/101280601.html",null,mEtCityNo.getText().toString().trim());
+//        sendJsoupRequest();
     }
 
     @Override
@@ -264,5 +273,13 @@ public class MainActivity extends AppCompatActivity implements WeatherView<Weath
         loadingDialog.dismiss();
         Log.e(TAG,"OnYoutube-data = " + data);
         mTvResult.setText(JSON.toJSONString(data));
+    }
+
+    @Override
+    public void OnJsoup(String data, String msg) {
+        Log.e(TAG,"OnJsoup................data = " + data);
+        if (isFinishing()) return;
+        loadingDialog.dismiss();
+        mTvResult.setText(data);
     }
 }
