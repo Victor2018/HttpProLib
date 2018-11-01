@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 
 public class HttpParm <T> {
-    public int requestMethod = HttpRequest.GET;
+    public int requestMethod = Request.GET;
     public int httpFramework = HttpRequest.OKHTTP_FRAMEWORK;
     public String bodyContentType = HttpRequest.mDefaultBodyContentType;
     public Class responseCls;//响应数据
