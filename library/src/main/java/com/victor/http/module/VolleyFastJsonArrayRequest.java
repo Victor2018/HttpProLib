@@ -14,9 +14,15 @@ import com.android.volley.toolbox.HttpHeaderParser;
 import java.io.UnsupportedEncodingException;
 import java.util.List;
 
-/**
- * @param <T>
- * Created by victor on 2017/2/8.
+/*
+ * -----------------------------------------------------------------
+ * Copyright (C) 2018-2028, by Victor, All rights reserved.
+ * -----------------------------------------------------------------
+ * File: VolleyFastJsonArrayRequest.java
+ * Author: Victor
+ * Date: 2018/9/6 18:25
+ * Description:
+ * -----------------------------------------------------------------
  */
 public class VolleyFastJsonArrayRequest<T> extends Request<T> {
     private String TAG = "VolleyFastJsonArrayRequest";

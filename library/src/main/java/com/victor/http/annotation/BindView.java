@@ -5,8 +5,15 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-/**
- * Created by victor on 2017/9/12 0012.
+/*
+ * -----------------------------------------------------------------
+ * Copyright (C) 2018-2028, by Victor, All rights reserved.
+ * -----------------------------------------------------------------
+ * File: BindView.java
+ * Author: Victor
+ * Date: 2018/9/6 18:25
+ * Description:
+ * -----------------------------------------------------------------
  */
 @Target({ElementType.FIELD})
 @Retention(RetentionPolicy.RUNTIME)

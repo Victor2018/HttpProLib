@@ -7,8 +7,15 @@ import android.text.TextUtils;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 
-/**
- * Created by Administrator on 2017/12/20.
+/*
+ * -----------------------------------------------------------------
+ * Copyright (C) 2018-2028, by Victor, All rights reserved.
+ * -----------------------------------------------------------------
+ * File: FormImage.java
+ * Author: Victor
+ * Date: 2018/9/6 18:25
+ * Description:
+ * -----------------------------------------------------------------
  */
 
 public class FormImage {

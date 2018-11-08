@@ -6,8 +6,15 @@ import android.os.Message;
 
 import java.util.LinkedHashSet;
 
-/**
- * 主线程Handler
+/*
+ * -----------------------------------------------------------------
+ * Copyright (C) 2018-2028, by Victor, All rights reserved.
+ * -----------------------------------------------------------------
+ * File: MainHandler.java
+ * Author: Victor
+ * Date: 2018/9/6 18:25
+ * Description:
+ * -----------------------------------------------------------------
  */
 
 public class MainHandler extends Handler {

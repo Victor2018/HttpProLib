@@ -9,6 +9,17 @@ import java.util.Map;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 
+/*
+ * -----------------------------------------------------------------
+ * Copyright (C) 2018-2028, by Victor, All rights reserved.
+ * -----------------------------------------------------------------
+ * File: OkHttpGetRequest.java
+ * Author: Victor
+ * Date: 2018/9/6 18:25
+ * Description:
+ * -----------------------------------------------------------------
+ */
+
 public class OkHttpGetRequest<T> extends OkHttpMethod<T> {
 
 

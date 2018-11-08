@@ -10,8 +10,15 @@ import com.victor.http.annotation.OnClick;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
-/**
- * Created by victor on 2017/9/13 0013.
+/*
+ * -----------------------------------------------------------------
+ * Copyright (C) 2018-2028, by Victor, All rights reserved.
+ * -----------------------------------------------------------------
+ * File: ViewInject.java
+ * Author: Victor
+ * Date: 2018/9/6 18:25
+ * Description:
+ * -----------------------------------------------------------------
  */
 
 public class ViewInject {

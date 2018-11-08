@@ -1,5 +1,6 @@
 package com.victor.http.module;
 
+import android.text.TextUtils;
 import android.util.Log;
 
 import com.alibaba.fastjson.JSON;
@@ -19,6 +20,17 @@ import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
+
+/*
+ * -----------------------------------------------------------------
+ * Copyright (C) 2018-2028, by Victor, All rights reserved.
+ * -----------------------------------------------------------------
+ * File: OkHttpMethod.java
+ * Author: Victor
+ * Date: 2018/9/6 18:25
+ * Description:
+ * -----------------------------------------------------------------
+ */
 
 public abstract class OkHttpMethod<T> implements Callback{
 
@@ -159,17 +171,15 @@ public abstract class OkHttpMethod<T> implements Callback{
             @Override
             public void run() {
                 if (mListener != null) {
-                    T result = parseObject(responseData,mClass);
-                    if (result != null) {
+                    if (!TextUtils.isEmpty(responseData)) {
                         if (mClass.toString().contains("String")) {
                             mListener.onSuccess((T) responseData);
                         } else {
-                            mListener.onSuccess(result);
+                            mListener.onSuccess(parseObject(responseData,mClass));
                         }
                     } else {
                         mListener.onError(msg);
                     }
-
                 }
             }
         });

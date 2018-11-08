@@ -1,7 +1,5 @@
 package com.victor.http.inject;
 
-import android.util.Log;
-
 import com.victor.http.annotation.HttpParms;
 import com.victor.http.module.HttpRequest;
 import com.victor.http.module.OkHttpRequest;
@@ -9,9 +7,15 @@ import com.victor.http.module.VolleyRequest;
 
 import java.lang.reflect.Method;
 
-/**
- * http 注解解析
- * Created by victor on 2017/9/13 0013.
+/*
+ * -----------------------------------------------------------------
+ * Copyright (C) 2018-2028, by Victor, All rights reserved.
+ * -----------------------------------------------------------------
+ * File: HttpInject.java
+ * Author: Victor
+ * Date: 2018/9/6 18:25
+ * Description: http 注解解析
+ * -----------------------------------------------------------------
  */
 
 public class HttpInject {

@@ -2,10 +2,15 @@ package com.victor.http.data;
 
 import java.util.HashMap;
 
-/**
- * @Author Victor
- * @Date Create on 2018/1/12 14:37.
- * @Describe
+/*
+ * -----------------------------------------------------------------
+ * Copyright (C) 2018-2028, by Victor, All rights reserved.
+ * -----------------------------------------------------------------
+ * File: BaseParm.java
+ * Author: Victor
+ * Date: 2018/9/6 18:25
+ * Description:
+ * -----------------------------------------------------------------
  */
 
 public class BaseParm {

@@ -5,6 +5,16 @@ import com.victor.http.module.HttpRequest;
 import java.util.HashMap;
 import java.util.List;
 
+/*
+ * -----------------------------------------------------------------
+ * Copyright (C) 2018-2028, by Victor, All rights reserved.
+ * -----------------------------------------------------------------
+ * File: HttpParm.java
+ * Author: Victor
+ * Date: 2018/9/6 18:25
+ * Description:
+ * -----------------------------------------------------------------
+ */
 public class HttpParm <T> {
     public int requestMethod = Request.GET;
     public int httpFramework = HttpRequest.OKHTTP_FRAMEWORK;

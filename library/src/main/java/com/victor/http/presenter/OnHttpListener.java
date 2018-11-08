@@ -1,8 +1,15 @@
 package com.victor.http.presenter;
 
 
-/**
- * Created by victor on 2017/10/9.
+/*
+ * -----------------------------------------------------------------
+ * Copyright (C) 2018-2028, by Victor, All rights reserved.
+ * -----------------------------------------------------------------
+ * File: OnHttpListener.java
+ * Author: Victor
+ * Date: 2018/9/6 18:25
+ * Description:
+ * -----------------------------------------------------------------
  */
 
 public interface OnHttpListener<T> {

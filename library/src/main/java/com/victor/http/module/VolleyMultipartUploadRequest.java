@@ -1,6 +1,5 @@
 package com.victor.http.module;
 
-import android.support.annotation.NonNull;
 import android.util.Log;
 
 import com.alibaba.fastjson.JSON;
@@ -18,15 +17,19 @@ import com.victor.http.data.UpLoadParm;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.UUID;
 
-/**
- * 上传图片
- * Created by Administrator on 2017/11/17.
+/*
+ * -----------------------------------------------------------------
+ * Copyright (C) 2018-2028, by Victor, All rights reserved.
+ * -----------------------------------------------------------------
+ * File: VolleyMultipartUploadRequest.java
+ * Author: Victor
+ * Date: 2018/9/6 18:25
+ * Description:
+ * -----------------------------------------------------------------
  */
 
 public class VolleyMultipartUploadRequest<T> extends Request<T> {

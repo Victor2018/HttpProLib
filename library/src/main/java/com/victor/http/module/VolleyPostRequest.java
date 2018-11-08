@@ -15,10 +15,16 @@ import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Created by victor on 2017/10/25.
+/*
+ * -----------------------------------------------------------------
+ * Copyright (C) 2018-2028, by Victor, All rights reserved.
+ * -----------------------------------------------------------------
+ * File: VolleyPostRequest.java
+ * Author: Victor
+ * Date: 2018/9/6 18:25
+ * Description:
+ * -----------------------------------------------------------------
  */
-
 public class VolleyPostRequest<T> extends JsonRequest<T> {
     private String TAG = "VolleyPostRequest";
     private Class<T> mClass;

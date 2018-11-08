@@ -38,5 +38,4 @@ dependencies {
     implementation 'com.mcxiaoke.volley:library:1.0.19'
     implementation 'com.squareup.okhttp3:okhttp:3.5.0'
     implementation 'com.alibaba:fastjson:1.1.56.android'
-    implementation files('libs/jsoup-1.11.3.jar')
 }

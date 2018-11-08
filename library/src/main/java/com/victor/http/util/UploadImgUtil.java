@@ -15,8 +15,15 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.UUID;
 
-/**
- * Created by Administrator on 2017/11/17.
+/*
+ * -----------------------------------------------------------------
+ * Copyright (C) 2018-2028, by Victor, All rights reserved.
+ * -----------------------------------------------------------------
+ * File: UploadImgUtil.java
+ * Author: Victor
+ * Date: 2018/9/6 18:25
+ * Description:
+ * -----------------------------------------------------------------
  */
 
 public class UploadImgUtil {

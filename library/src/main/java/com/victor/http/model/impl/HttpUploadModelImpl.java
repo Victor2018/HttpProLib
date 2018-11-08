@@ -9,8 +9,15 @@ import com.victor.http.model.HttpModel;
 import com.victor.http.module.HttpRequest;
 import com.victor.http.presenter.OnHttpListener;
 
-/**
- * Created by victor on 2017/9/26.
+/*
+ * -----------------------------------------------------------------
+ * Copyright (C) 2018-2028, by Victor, All rights reserved.
+ * -----------------------------------------------------------------
+ * File: HttpUploadModelImpl.java
+ * Author: Victor
+ * Date: 2018/9/6 18:25
+ * Description:
+ * -----------------------------------------------------------------
  */
 
 public class HttpUploadModelImpl<H,T> implements HttpModel<H,T> {

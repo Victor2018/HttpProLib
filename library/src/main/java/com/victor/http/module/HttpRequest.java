@@ -10,11 +10,21 @@ import com.victor.http.presenter.OnHttpListener;
 
 import java.util.HashMap;
 
+/*
+ * -----------------------------------------------------------------
+ * Copyright (C) 2018-2028, by Victor, All rights reserved.
+ * -----------------------------------------------------------------
+ * File: HttpRequest.java
+ * Author: Victor
+ * Date: 2018/9/6 18:25
+ * Description:
+ * -----------------------------------------------------------------
+ */
+
 public class HttpRequest {
     private String TAG = "HttpRequest";
     public static final int OKHTTP_FRAMEWORK = 0;
     public static final int VOLLEY_FRAMEWORK = 1;
-    public static final int JSOUP_FRAMEWORK = 2;
     private int httpFramework = OKHTTP_FRAMEWORK;
 
     private int requestMethod = Request.GET;
@@ -86,11 +96,6 @@ public class HttpRequest {
             case OKHTTP_FRAMEWORK:
                 Log.e(TAG,"sendRequest()......OKHTTP_FRAMEWORK");
                 OkHttpRequest.getInstance().sendRequest(httpParams,httpListener);
-                break;
-            case JSOUP_FRAMEWORK:
-                Log.e(TAG,"sendRequest()......JSOUP_FRAMEWORK");
-                httpParams.msg = JsoupRequest.JSOUP_REQUEST;
-                JsoupRequest.getInstance().sendRequest(httpParams,httpListener);
                 break;
         }
     }

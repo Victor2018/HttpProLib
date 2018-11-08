@@ -6,8 +6,15 @@ import com.victor.http.model.impl.HttpUploadModelImpl;
 import com.victor.http.presenter.HttpPresenter;
 import com.victor.http.presenter.OnHttpListener;
 
-/**
- * Created by victor on 2017/9/26.
+/*
+ * -----------------------------------------------------------------
+ * Copyright (C) 2018-2028, by Victor, All rights reserved.
+ * -----------------------------------------------------------------
+ * File: BaseUploadPresenterImpl.java
+ * Author: Victor
+ * Date: 2018/9/6 18:25
+ * Description:
+ * -----------------------------------------------------------------
  */
 
 public abstract class BaseUploadPresenterImpl<H,T> implements HttpPresenter<H,T>,OnHttpListener<T> {

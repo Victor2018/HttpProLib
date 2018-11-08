@@ -10,6 +10,17 @@ import com.victor.http.R;
 
 import java.lang.reflect.Field;
 
+/*
+ * -----------------------------------------------------------------
+ * Copyright (C) 2018-2028, by Victor, All rights reserved.
+ * -----------------------------------------------------------------
+ * File: ResUtils.java
+ * Author: Victor
+ * Date: 2018/9/6 18:25
+ * Description:
+ * -----------------------------------------------------------------
+ */
+
 public class ResUtils {
 
     public static String getStringRes(Context context, int id) {
