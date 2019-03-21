@@ -8,10 +8,8 @@ group='com.github.Victor2018'
 android {
     compileSdkVersion 26
 
-
-
     defaultConfig {
-        minSdkVersion 17
+        minSdkVersion 15
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
